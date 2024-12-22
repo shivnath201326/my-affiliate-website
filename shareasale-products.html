@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShareASale Affiliate Products</title>
+    <style>
+        /* Same CSS as above */
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>ShareASale Affiliate Products</h1>
+</header>
+
+<div class="product-container" id="shareasale-products">
+    <!-- Products will be loaded here dynamically -->
+</div>
+
+<script>
+    const shareasaleProducts = [
+        {
+            title: 'ShareASale Product 1',
+            image: 'https://via.placeholder.com/300x200',
+            price: '$15.99',
+            affiliateLink: 'https://www.shareasale.com/r.cfm?B=12345&U=67890&M=123'
+        },
+        {
+            title: 'ShareASale Product 2',
+            image: 'https://via.placeholder.com/300x200',
+            price: '$25.99',
+            affiliateLink: 'https://www.shareasale.com/r.cfm?B=12346&U=67891&M=124'
+        }
+    ];
+
+    function loadShareASaleProducts() {
+        const container = document.getElementById('shareasale-products');
+        shareasaleProducts.forEach(product => {
+            const productCard = document.createElement('div');
+            productCard.classList.add('product-card');
+            
+            productCard.innerHTML = `
+                <img src="${product.image}" alt="${product.title}">
+                <h2 class="product-title">${product.title}</h2>
+                <p class="product-price">${product.price}</p>
+                <a href="${product.affiliateLink}" class="affiliate-link" target="_blank">Buy Now</a>
+            `;
+            
+            container.appendChild(productCard);
+        });
+    }
+
+    window.onload = loadShareASaleProducts;
+</script>
+
+</body>
+</html>
