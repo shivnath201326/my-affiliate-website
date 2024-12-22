@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart Affiliate Products</title>
+    <style>
+        /* Same CSS as above */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #2874F0;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .product-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        .product-title {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .product-price {
+            color: #333;
+        }
+        .affiliate-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #2874F0;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .affiliate-link:hover {
+            background-color: #1c5bb2;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Flipkart Affiliate Products</h1>
+</header>
+
+<div class="product-container" id="flipkart-products">
+    <!-- Products will be loaded here dynamically -->
+</div>
+
+<script>
+    const flipkartProducts = [
+        {
+            title: 'Flipkart Product 1',
+            image: 'https://via.placeholder.com/300x200',
+            price: '₹1,999',
+            affiliateLink: 'https://www.flipkart.com/product1'
+        },
+        {
+            title: 'Flipkart Product 2',
+            image: 'https://via.placeholder.com/300x200',
+            price: '₹2,499',
+            affiliateLink: 'https://www.flipkart.com/product2'
+        },
+        {
+            title: 'Flipkart Product 3',
+            image: 'https://via.placeholder.com/300x200',
+            price: '₹3,499',
+            affiliateLink: 'https://www.flipkart.com/product3'
+        }
+    ];
+
+    function loadFlipkartProducts() {
+        const container = document.getElementById('flipkart-products');
+        flipkartProducts.forEach(product => {
+            const productCard = document.createElement('div');
+            productCard.classList.add('product-card');
+            
+            productCard.innerHTML = `
+                <img src="${product.image}" alt="${product.title}">
+                <h2 class="product-title">${product.title}</h2>
+                <p class="product-price">${product.price}</p>
+                <a href="${product.affiliateLink}" class="affiliate-link" target="_blank">Buy Now</a>
+            `;
+            
+            container.appendChild(productCard);
+        });
+    }
+
+    window.onload = loadFlipkartProducts;
+</script>
+
+</body>
+</html>
